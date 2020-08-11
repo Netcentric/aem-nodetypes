@@ -1,5 +1,6 @@
-![](https://github.com/Netcentric/aem-nodetypes/workflows/Java%20CI/badge.svg) [![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/biz.netcentric.filevault.validator/aem-classification-validator/badge.svg)](https://search.maven.org/artifact/biz.netcentric.filevault.validator/aem-classification-validator)
+[![License](https://img.shields.io/badge/License-EPL%201.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
+[![Maven Central](https://img.shields.io/maven-central/v/biz.netcentric.aem/aem-nodetypes)](https://search.maven.org/artifact/biz.netcentric.aem/aem-nodetypes) 
+![Java CI/CD](https://github.com/Netcentric/aem-nodetypes/workflows/Java%20CI/CD/badge.svg) 
 
 # Overview
 Provides a [CND file][1] with all Nodetypes and Namespaces defined in AEM. It can be used for the [FileVault Validation Module][2] and its `jackrabbit-nodetype` validator.
@@ -26,7 +27,7 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
     <dependency>
       <groupId>biz.netcentric.aem</groupId>
       <artifactId>aem-nodetypes</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <version>6.5.0</version>
     </dependency>
   </dependencies>
 </plugin>
