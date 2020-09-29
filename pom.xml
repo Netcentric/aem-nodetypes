@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>biz.netcentric.aem</groupId>
     <artifactId>aem-nodetypes</artifactId>
-    <version>2020.09.0-SNAPSHOT</version>
+    <version>2020.09.0</version>
 
     <packaging>jar</packaging>
     <name>AEM Node Types and Namespaces</name>
@@ -37,7 +37,7 @@
         <connection>scm:git:ssh://git@github.com/Netcentric/aem-nodetypes.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/Netcentric/aem-nodetypes.git</developerConnection>
         <url>https://github.com/Netcentric/aem-nodetypes.git</url>
-        <tag>HEAD</tag>
+        <tag>2020.09.0</tag>
     </scm>
 
     <distributionManagement>
