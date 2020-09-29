@@ -17,17 +17,15 @@
 <'cq'='http://www.day.com/jcr/cq/1.0'>
 <'oak'='http://jackrabbit.apache.org/oak/ns/1.0'>
 <'jcr'='http://www.jcp.org/jcr/1.0'>
-<'mix'='http://www.jcp.org/jcr/mix/1.0'>
 <'granite'='http://www.adobe.com/jcr/granite/1.0'>
+<'mix'='http://www.jcp.org/jcr/mix/1.0'>
 <'rep'='internal'>
 <'xmp'='http://ns.adobe.com/xap/1.0/'>
-<'social'='http://www.adobe.com/social/1.0'>
 <'dam'='http://www.day.com/dam/1.0'>
 <'oauth'='http://oauth.net/'>
 <'rdf'='http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
 <'vlt'='http://www.day.com/jcr/vault/1.0'>
 <'slingevent'='http://sling.apache.org/jcr/event/1.0'>
-<'fd'='http://www.adobe.com/aemfd/fd/1.0'>
 
 [sling:OrderedFolder] > sling:Folder
   orderable
@@ -44,15 +42,6 @@
 [nt:linkedFile] > nt:hierarchyNode
   primaryitem jcr:content
   - jcr:content (reference) mandatory
-
-[cq:Comment] > cq:Taggable, mix:created, mix:language, mix:title, nt:unstructured
-  - userAgent (string)
-  - url (string)
-  - ip (string)
-  - userIdentifier (string)
-  - email (string)
-  - referer (string)
-  - authorizableId (string)
 
 [granite:Component] > sling:Folder, sling:ResourceSuperType
   mixin
@@ -116,12 +105,12 @@
 
 [cq:WorkflowNode]
   orderable
-  - title (string)
   - description (string)
-  - maxIdleTime (long)
-  - type (string)
-  - * (undefined)
+  - title (string)
   - * (undefined) multiple
+  - type (string)
+  - maxIdleTime (long)
+  - * (undefined)
   + metaData (nt:unstructured)
   + timeoutConfiguration (nt:unstructured)
 
@@ -140,16 +129,9 @@
   - icon (string)
   - title (string)
 
-[cq:GeoLocation]
-  mixin
-  - longitude (double)
-  - latitude (double)
-
 [rep:Privileges]
   - rep:next (long) mandatory protected multiple
   + * (rep:Privilege) = rep:Privilege protected abort
-
-[social:asiResource] > sling:Folder
 
 [cq:Taggable]
   mixin
@@ -176,13 +158,13 @@
 
 [cq:WorkflowModel] > mix:versionable
   orderable
-  - title (string)
   - description (string)
   - sling:resourceType (string) = 'cq/workflow/components/model' mandatory autocreated
+  - title (string)
+  + variables (nt:unstructured)
+  + metaData (nt:unstructured)
   + nodes (nt:unstructured)
   + transitions (nt:unstructured)
-  + metaData (nt:unstructured)
-  + variables (nt:unstructured)
 
 [nt:activity] > mix:referenceable
   - jcr:activityTitle (string) mandatory autocreated protected
@@ -268,9 +250,9 @@
   - nodeId (string)
 
 [cq:Wait]
-  - workflowId (string)
-  - destNodeId (string)
   - fromNodeId (string)
+  - destNodeId (string)
+  - workflowId (string)
 
 [cq:BlueprintAction] > nt:unstructured
 
@@ -347,12 +329,12 @@
   - jcr:data (binary) mandatory
 
 [rep:ACE]
-  - rep:principalName (string) mandatory protected
-  - rep:privileges (name) mandatory protected multiple
-  - rep:nodePath (path) protected
-  - rep:glob (string) protected
-  - * (undefined) protected
-  + rep:restrictions (rep:Restrictions) = rep:Restrictions protected
+  - rep:principalName (string) mandatory protected ignore
+  - rep:privileges (name) mandatory protected multiple ignore
+  - rep:nodePath (path) protected ignore
+  - rep:glob (string) protected ignore
+  - * (undefined) protected ignore
+  + rep:restrictions (rep:Restrictions) = rep:Restrictions protected ignore
 
 [rep:versionStorage]
   - * (undefined) protected abort
@@ -370,22 +352,16 @@
   + oak:index (nt:base) = nt:unstructured
 
 [cq:Payload]
-  - path (path)
-  - uuid (string)
-  - jcr:url (string)
   - binary (binary)
+  - uuid (string)
   - javaObject (string)
-  - * (undefined)
+  - jcr:url (string)
   - * (undefined) multiple
+  - path (path)
+  - * (undefined)
 
 [rdf:Alt] > xmp:Simple
   + * (xmp:Property)
-
-[cq:CommentContent] > sling:HierarchyNode
-  orderable
-  - * (undefined)
-  - * (undefined) multiple
-  + * (nt:base) = nt:unstructured version
 
 [cq:ExporterConfig]
   mixin
@@ -395,9 +371,9 @@
   - enabled (boolean)
 
 [cq:WorkflowStack]
+  - nodeId (string)
   - containeeInstanceId (string)
   - parentInstanceId (string)
-  - nodeId (string)
 
 [cq:RolloutConfig] > mix:title
   orderable
@@ -425,13 +401,8 @@
   - rank (long)
   - status (string)
   - subType (string)
-  - locked (boolean)
-  - returned (boolean)
-  - allowInboxSharing (boolean)
-  - allowExplicitSharing (boolean)
-  - sharedWith (string) multiple
 
-[nt:frozenNode] > mix:referenceable
+[nt:frozenNode]
   orderable
   - jcr:frozenPrimaryType (name) mandatory autocreated protected abort
   - jcr:frozenMixinTypes (name) protected multiple abort
@@ -452,12 +423,12 @@
   - rep:declaringNodeType (name) mandatory protected
 
 [cq:WorkItem] > granite:InboxItem
-  - workflowId (string)
   - nodeId (string)
   - sling:resourceType (string)
-  - completedBy (string)
   - * (undefined)
   - * (undefined) multiple
+  - workflowId (string)
+  - completedBy (string)
   + metaData (nt:unstructured)
 
 [nt:version] > mix:referenceable
@@ -528,14 +499,14 @@
   - * (undefined) protected multiple
 
 [cq:WorkflowLauncher]
-  - nodetype (string)
+  - workflow (string)
   - glob (string)
-  - eventType (long)
+  - * (undefined) multiple
+  - nodetype (string)
   - description (string)
   - condition (string)
-  - workflow (string)
   - * (undefined)
-  - * (undefined) multiple
+  - eventType (long)
 
 [rep:Impersonatable]
   mixin
@@ -601,13 +572,6 @@
   + analytics (cq:meta) ignore
   + cq:meta (cq:meta) ignore
 
-[cq:Commerce]
-  mixin
-  - cq:commerceProvider (string)
-
-[cq:CatalogSyncAction]
-  mixin
-
 [sling:Message]
   mixin
   - sling:key (string)
@@ -633,6 +597,11 @@
   mixin primaryitem rep:ours
   + rep:ours (rep:Unstructured) protected ignore
 
+[rep:PrincipalEntry]
+  - rep:effectivePath (path) mandatory protected ignore
+  - rep:privileges (name) mandatory protected multiple ignore
+  + rep:restrictions (rep:Restrictions) = rep:Restrictions protected ignore
+
 [cq:ComponentMixin] > cq:Component
   mixin
 
@@ -643,10 +612,6 @@
 
 [cq:LiveCopy] > cq:LcPathFilter, cq:LiveSyncConfig
   - cq:moveTarget (string)
-
-[cq:CommentAttachment] > nt:file
-  - * (undefined) multiple
-  - * (undefined)
 
 [nt:base]
   abstract
@@ -690,10 +655,10 @@
   + metaData (nt:unstructured)
 
 [cq:ProcessStack]
-  - workflowId (string)
-  - containerWorkflowModelId (string)
   - containerWorkflowNodeId (string)
+  - workflowId (string)
   - containerWorkflowEndNodeId (string)
+  - containerWorkflowModelId (string)
 
 [slingevent:TimedEvent] > mix:lockable, slingevent:Event
   - slingevent:processor (string)
@@ -704,10 +669,6 @@
 
 [rep:root] > nt:unstructured
   + jcr:system (rep:system) = rep:system mandatory ignore
-
-[social:asiFile] > nt:file
-  - * (undefined) multiple
-  - * (undefined)
 
 [cq:Page] > nt:hierarchyNode
   orderable primaryitem jcr:content
@@ -722,8 +683,6 @@
   - jcr:workspace (string)
   - jcr:path (path)
   - jcr:id (weakreference)
-
-[cq:Trackback] > mix:created, mix:language, mix:title, nt:unstructured
 
 [dam:Thumbnails]
   mixin
@@ -838,10 +797,10 @@
   mixin
 
 [cq:WorkflowData]
-  - * (undefined)
   - * (undefined) multiple
-  + payload (cq:Payload)
+  - * (undefined)
   + metaData (nt:unstructured)
+  + payload (cq:Payload)
 
 [cq:Field] > cq:Widget
   orderable
@@ -931,20 +890,20 @@
 [rep:SystemUser] > rep:User
 
 [cq:Workflow] > mix:referenceable
-  - modelId (string)
-  - modelVersion (string)
-  - startTime (date)
-  - endTime (date)
   - initiator (string)
-  - * (undefined)
+  - endTime (date)
   - * (undefined) multiple
+  - * (undefined)
+  - modelVersion (string)
+  - modelId (string)
+  - startTime (date)
   - sling:resourceType (string)
-  + workflowStack (nt:unstructured)
   + wait (nt:unstructured)
   + orTab (nt:unstructured)
   + data (cq:WorkflowData)
-  + history (nt:unstructured)
+  + workflowStack (nt:unstructured)
   + metaData (nt:unstructured)
+  + history (nt:unstructured)
   + workItems (nt:unstructured)
 
 [mix:language]
@@ -989,12 +948,13 @@
 [rep:NamedPropertyDefinitions]
   + * (rep:PropertyDefinitions) = rep:PropertyDefinitions protected
 
+[rep:PrincipalPolicy] > rep:Policy
+  orderable
+  - rep:principalName (string) mandatory protected ignore
+  + * (rep:PrincipalEntry) = rep:PrincipalEntry protected ignore
+
 [rep:nodeTypes]
   + * (nt:nodeType) = nt:nodeType protected abort
-
-[fd:xdp]
-  mixin
-  - fd:trusted (boolean)
 
 [rep:AccessControllable]
   mixin
@@ -1020,6 +980,10 @@
   - accept (string) multiple
   - groups (string) multiple
   + parameters (nt:base) = nt:unstructured
+
+[rep:PrincipalBasedMixin]
+  mixin
+  + rep:principalPolicy (rep:PrincipalPolicy) protected ignore
 
 [rep:RetentionManageable]
   mixin
@@ -1071,9 +1035,9 @@
 
 [cq:Tag] > mix:title, nt:hierarchyNode
   orderable
+  - sling:resourceType (string) = 'cq/tagging/components/tag' mandatory autocreated
   - * (undefined) multiple
   - * (undefined)
-  - sling:resourceType (string) = 'cq/tagging/components/tag' mandatory autocreated
   + * (nt:base) = cq:Tag version
 
 [rep:DenyACE] > rep:ACE
@@ -1096,11 +1060,9 @@
   + * (rep:Authorizable) = rep:User version
   + * (rep:AuthorizableFolder) = rep:AuthorizableFolder version
 
-[cq:CatalogSyncConfig] > nt:unstructured
-
 [cq:Project]
   mixin
 
 [rep:Restrictions]
-  - * (undefined) protected
-  - * (undefined) protected multiple
+  - * (undefined) protected ignore
+  - * (undefined) protected multiple ignore
