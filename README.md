@@ -27,7 +27,7 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
     <dependency>
       <groupId>biz.netcentric.aem</groupId>
       <artifactId>aem-nodetypes</artifactId>
-      <version>6.5.5.0</version>
+      <version>2020.11.0</version>
     </dependency>
   </dependencies>
 </plugin>
@@ -42,7 +42,8 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
 
 | Version   |  Type   |  Description |
 | --------- | ------- | ------------ |
+| 2020.11.0 | Cloud   | Exported from AEM SDK 2020.11.4506.20201112T235200Z. |
+| 2020.09.0 | Cloud   | Exported from AEM SDK 2020.9.4194.20200909T200349Z-200827. Suffers from <https://github.com/Netcentric/aem-nodetypes/issues/2> |
 | 6.5.5.0   | Classic | Exported from AEM 6.5.5, has not changed for AEM 6.5.6 |
-| 2020.09.0 | Cloud   | Exported from AEM SDK 2020.9.4194.20200909T200349Z-200827 |
 
 Pick the version which is closest to your AEM version. In general the node types are very stable (i.e. do not change for service packs in Classic and very rarely in Cloud aka AEMaaCS).
