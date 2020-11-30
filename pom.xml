@@ -2,11 +2,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>biz.netcentric.aem</groupId>
     <artifactId>aem-nodetypes</artifactId>
-    <version>2020.09.1-SNAPSHOT</version>
+    <version>2020.11.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
     <name>AEM Node Types and Namespaces</name>
-    <description>This module contains the node types and namespaces being defined in AEM as a cnd file</description>
+    <description>This module contains the node types and namespaces being defined in AEM as a CND file</description>
 
     <url>https://github.com/Netcentric/aem-nodetypes</url>
     <inceptionYear>2020</inceptionYear>
