@@ -27,7 +27,7 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
     <dependency>
       <groupId>biz.netcentric.aem</groupId>
       <artifactId>aem-nodetypes</artifactId>
-      <version>6.5.5.0</version>
+      <version>6.5.7.0</version>
     </dependency>
   </dependencies>
 </plugin>
