@@ -2,7 +2,7 @@
  * #%L
  * AEM Nodetypes
  * %%
- * Copyright (C) 2020 Netcentric - A Cognizant Digital Business
+ * Copyright (C) 2022 Cognizant Netcentric
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -11,7 +11,9 @@
  * #L%
  */
 
-// being generated from the Web Console Plugin attached to https://issues.apache.org/jira/browse/SLING-9945
+// being generated from the Web Console Plugin added via https://issues.apache.org/jira/browse/SLING-9945
+// binary in https://repo1.maven.org/maven2/org/apache/sling/org.apache.sling.jcr.webconsole/1.1.0/org.apache.sling.jcr.webconsole-1.1.0.jar
+// exposed via http://localhost:4502/system/console/status-JCR%20CND.txt
 <'DICOM'='http://ns.adobe.com/DICOM/'>
 <'Iptc4xmpCore'='http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/'>
 <'Iptc4xmpExt'='http://iptc.org/std/Iptc4xmpExt/2008-02-29/'>
@@ -29,16 +31,11 @@
 <'dc'='http://purl.org/dc/elements/1.1/'>
 <'dex'='http://ns.optimasc.com/dex/1.0/'>
 <'exif'='http://ns.adobe.com/exif/1.0/'>
-<'exifEX'='http://cipa.jp/exif/1.0/'>
 <'granite'='http://www.adobe.com/jcr/granite/1.0'>
 <'jcr'='http://www.jcp.org/jcr/1.0'>
 <'lr'='http://ns.adobe.com/lightroom/1.0/'>
 <'mediapro'='http://ns.iview-multimedia.com/mediapro/1.0/'>
 <'mix'='http://www.jcp.org/jcr/mix/1.0'>
-<'ns1_1_'='http://ns.camerabits.com/photomechanic/1.0/'>
-<'ns2'='http://www.metadataworkinggroup.com/schemas/regions/'>
-<'ns3'='http://ns.adobe.com/xmp/sType/Area#'>
-<'ns4'='http://ns.apple.com/faceinfo/1.0/'>
 <'nt'='http://www.jcp.org/jcr/nt/1.0'>
 <'oak'='http://jackrabbit.apache.org/oak/ns/1.0'>
 <'oauth'='http://oauth.net/'>
@@ -57,7 +54,6 @@
 <'sling'='http://sling.apache.org/jcr/sling/1.0'>
 <'slingevent'='http://sling.apache.org/jcr/event/1.0'>
 <'social'='http://www.adobe.com/social/1.0'>
-<'stDim'='http://ns.adobe.com/xap/1.0/sType/Dimensions#'>
 <'stEvt'='http://ns.adobe.com/xap/1.0/sType/ResourceEvent#'>
 <'stRef'='http://ns.adobe.com/xap/1.0/sType/ResourceRef#'>
 <'stock'='http://ns.adobe.com/stock/1.0/'>
@@ -666,6 +662,9 @@
   - jcr:primaryType (name) mandatory autocreated protected compute
   - jcr:mixinTypes (name) protected multiple compute
 
+[dam:color] > nt:unstructured
+  mixin
+
 [cq:PseudoPage]
   mixin
 
@@ -1103,6 +1102,9 @@
   - cq:allowedTemplates (string) multiple
   - cq:designPath (string)
   - navTitle (string)
+
+[dam:cfVariationNode] > nt:unstructured
+  mixin
 
 [rep:AuthorizableFolder] > nt:hierarchyNode
   + * (rep:Authorizable) = rep:User version
