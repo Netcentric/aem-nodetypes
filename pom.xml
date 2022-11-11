@@ -12,7 +12,7 @@
     <inceptionYear>2020</inceptionYear>
 
     <organization>
-        <name>Netcentric - A Cognizant Digital Business</name>
+        <name>Cognizant Netcentric</name>
         <url>https://www.netcentric.biz/</url>
     </organization>
     <developers>
@@ -20,7 +20,7 @@
             <name>Konrad Windszus</name>
             <email>konrad.windszus@netcentric.biz</email>
             <id>konrad.windszus@netcentric.biz</id>
-            <organization>Netcentric</organization>
+            <organization>Cognizant Netcentric</organization>
             <organizationUrl>https://www.netcentric.biz/</organizationUrl>
         </developer>
     </developers>
