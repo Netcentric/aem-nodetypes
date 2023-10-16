@@ -2,7 +2,7 @@
  * #%L
  * AEM Nodetypes
  * %%
- * Copyright (C) 2022 Cognizant Netcentric
+ * Copyright (C) 2023 Cognizant Netcentric
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -199,6 +199,16 @@
 
 [cq:Dialog] > cq:Widget
   orderable
+
+[cq:ReplicationStatus2]
+  mixin
+  - cq:lastReplicated_publish (date) ignore
+  - cq:lastReplicatedBy_publish (string) ignore
+  - cq:lastReplicationAction_publish (string) ignore
+  - cq:lastReplicated_preview (date) ignore
+  - cq:lastReplicatedBy_preview (string) ignore
+  - cq:lastReplicationAction_preview (string) ignore
+  - cq:isDelivered (boolean) ignore
 
 [cq:WorkflowModel] > mix:versionable
   orderable
@@ -423,6 +433,13 @@
   orderable
   - cq:trigger (string) mandatory
   + * (cq:LiveSyncAction) mandatory
+
+[sling:ResourceMerger]
+  mixin
+  - sling:hideProperties (string) multiple
+  - sling:hideChildren (string) multiple
+  - sling:hideResource (boolean)
+  - sling:orderBefore (string)
 
 [sling:MessageEntry] > nt:hierarchyNode, sling:Message
 
@@ -1055,6 +1072,9 @@
   + rep:repoPolicy (rep:Policy) protected ignore
 
 [rep:GrantACE] > rep:ACE
+
+[dam:IndexedFragmentData] > mix:referenceable
+  mixin
 
 [rep:ChildNodeDefinitions]
   + * (rep:ChildNodeDefinition) = rep:ChildNodeDefinition protected

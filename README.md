@@ -3,9 +3,11 @@
 ![Java CI/CD](https://github.com/Netcentric/aem-nodetypes/workflows/Java%20CI/CD/badge.svg) 
 
 # Overview
+
 Provides a [CND file][1] with all Node types and Namespaces defined in AEM. It can be used for the [FileVault Validation Module][2] and its `jackrabbit-nodetype` validator.
 
 # Usage with Maven
+
 You can use this module with the [FileVault Package Maven Plugin][3] in version 1.1.4 or higher like this
 
 ```
@@ -27,7 +29,7 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
     <dependency>
       <groupId>biz.netcentric.aem</groupId>
       <artifactId>aem-nodetypes</artifactId>
-      <version>2022.10.0</version>
+      <version>2023.10.0</version>
     </dependency>
   </dependencies>
 </plugin>
@@ -42,6 +44,7 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
 
 | Version   |  Type   |  Description |
 | --------- | ------- | ------------ |
+| 2023.10.0 | Cloud   | Exported from AEM SDK 2023.10.13804.20231005T183332Z-230902. |
 | 2022.10.0 | Cloud   | Exported from AEM SDK 2022.10.9398.20221020T071514Z. |
 | 2020.11.0 | Cloud   | Exported from AEM SDK 2020.11.4506.20201112T235200Z. |
 | 2020.09.0 | Cloud   | Exported from AEM SDK 2020.9.4194.20200909T200349Z-200827. Suffers from <https://github.com/Netcentric/aem-nodetypes/issues/2> |
@@ -49,3 +52,7 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
 | 6.5.5.0   | Classic | Exported from AEM 6.5.5, has not changed for AEM 6.5.6. Suffers from <https://github.com/Netcentric/aem-nodetypes/issues/2> |
 
 Pick the version which is closest to your AEM version. In general the node types are very stable (i.e. do not change for service packs in Classic and very rarely in Cloud aka AEMaaCS).
+
+# Generation of CND
+
+The CND exposed by this Maven artifact is exported from a running plain AEM version through the [JCR Web Console Plugin 1.1.0](https://issues.apache.org/jira/browse/SLING-9945) via the endpoint `/system/console/status-JCR%20CND.txt`.
