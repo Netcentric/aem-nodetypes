@@ -56,3 +56,6 @@ Pick the version which is closest to your AEM version. In general the node types
 # Generation of CND
 
 The CND exposed by this Maven artifact is exported from a running plain AEM version through the [JCR Web Console Plugin 1.1.0](https://issues.apache.org/jira/browse/SLING-9945) via the endpoint `/system/console/status-JCR%20CND.txt`.
+
+> [!NOTE]
+> The endpoint at `/crx/de/exportnodetype.jsp` cannot be used as source as this only exposes those namespaces referenced in node types but not the others.
