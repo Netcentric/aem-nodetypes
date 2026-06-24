@@ -18,6 +18,7 @@ jobs:
         server-username: MAVEN_USERNAME # env variable for username in deploy
         server-password: MAVEN_PASSWORD # env variable for token in deploy
     - name: Build Reactor with Maven
+      if: github.ref != 'refs/heads/master'
       run: mvn -B clean install
     - name: Deploy Reactor with Maven
       if: github.ref == 'refs/heads/master'
