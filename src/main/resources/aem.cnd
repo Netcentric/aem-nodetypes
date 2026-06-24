@@ -2,7 +2,7 @@
  * #%L
  * AEM Nodetypes
  * %%
- * Copyright (C) 2023 Cognizant Netcentric
+ * Copyright (C) 2026 Cognizant Netcentric
  * %%
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -22,8 +22,11 @@
 <'acdsee'='http://ns.acdsee.com/iptc/1.0/'>
 <'adobe_dam'='http://www.adobe.com/adobe_dam/1.0'>
 <'album'='http://ns.adobe.com/album/1.0/'>
+<'autogen'='http://ns.adobe.com/aem/autogen/1.0'>
 <'cc'='http://creativecommons.org/ns#'>
+<'ccm'='http://www.adobe.com/aemfd/ccm/1.0'>
 <'cm'='http://www.adobe.com/aemfd/cm/1.0'>
+<'commerce'='https://commerce.adobe.com'>
 <'cq'='http://www.day.com/jcr/cq/1.0'>
 <'crs'='http://ns.adobe.com/camera-raw-settings/1.0/'>
 <'crx'='http://www.day.com/crx/1.0'>
@@ -31,6 +34,7 @@
 <'dc'='http://purl.org/dc/elements/1.1/'>
 <'dex'='http://ns.optimasc.com/dex/1.0/'>
 <'exif'='http://ns.adobe.com/exif/1.0/'>
+<'genstudio'='http://ns.adobe.com/genstudio/1.0'>
 <'granite'='http://www.adobe.com/jcr/granite/1.0'>
 <'jcr'='http://www.jcp.org/jcr/1.0'>
 <'lr'='http://ns.adobe.com/lightroom/1.0/'>
@@ -367,6 +371,9 @@
   - * (undefined) protected
   - * (undefined) protected multiple
 
+[cq:contentFragment] > nt:unstructured
+  mixin
+
 [nt:unstructured]
   orderable
   - * (undefined) multiple
@@ -632,6 +639,9 @@
   mixin
   + analytics (cq:meta) ignore
   + cq:meta (cq:meta) ignore
+
+[cq:Cacheable] > mix:lastModified
+  mixin
 
 [sling:Message]
   mixin
@@ -1136,3 +1146,9 @@
 [rep:Restrictions]
   - * (undefined) protected ignore
   - * (undefined) protected multiple ignore
+
+[cq:Searchable]
+  mixin
+  - cq:searchTitle (string)
+  - cq:searchDescription (string)
+  - cq:searchContent (string) multiple

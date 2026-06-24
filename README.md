@@ -14,7 +14,6 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
 <plugin>
   <groupId>org.apache.jackrabbit</groupId>
   <artifactId>filevault-package-maven-plugin</artifactId>
-  <version>1.1.4</version>
   <configuration>
     <validatorsSettings>
       <jackrabbit-nodetypes>
@@ -29,7 +28,7 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
     <dependency>
       <groupId>biz.netcentric.aem</groupId>
       <artifactId>aem-nodetypes</artifactId>
-      <version>2023.10.0</version>
+      <version>2026.06.0</version>
     </dependency>
   </dependencies>
 </plugin>
@@ -44,10 +43,11 @@ You can use this module with the [FileVault Package Maven Plugin][3] in version 
 
 | Version   |  Type   |  Description |
 | --------- | ------- | ------------ |
-| 2023.10.0 | Cloud   | Exported from AEM SDK 2023.10.13804.20231005T183332Z-230902. |
-| 2022.10.0 | Cloud   | Exported from AEM SDK 2022.10.9398.20221020T071514Z. |
-| 2020.11.0 | Cloud   | Exported from AEM SDK 2020.11.4506.20201112T235200Z. |
-| 2020.09.0 | Cloud   | Exported from AEM SDK 2020.9.4194.20200909T200349Z-200827. Suffers from <https://github.com/Netcentric/aem-nodetypes/issues/2> |
+| 2026.06.0  | Cloud   | Exported from AEM SDK 2026.6.26773. |
+| 2023.10.0 | Cloud   | Exported from AEM SDK 2023.10.13804. |
+| 2022.10.0 | Cloud   | Exported from AEM SDK 2022.10.9398. |
+| 2020.11.0 | Cloud   | Exported from AEM SDK 2020.11.4506. |
+| 2020.09.0 | Cloud   | Exported from AEM SDK 2020.9.4194. Suffers from <https://github.com/Netcentric/aem-nodetypes/issues/2> |
 | 6.5.7.0   | Classic | Exported from AEM 6.5.7 |
 | 6.5.5.0   | Classic | Exported from AEM 6.5.5, has not changed for AEM 6.5.6. Suffers from <https://github.com/Netcentric/aem-nodetypes/issues/2> |
 
